@@ -74,10 +74,16 @@ WSGI_APPLICATION = 'admin_panel.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import admin_panel.credentials as credentials
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': credentials.POSTGRES_USERNAME,
+        'PASSWORD': credentials.POSTGRES_PASSWORD,
+        'HOST': credentials.POSTGRES_HOST,
+        'PORT': credentials.POSTGRES_PORT,
     }
 }
 
